@@ -45,24 +45,20 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- This dependency will auto compile after you save -->
-		<!-- 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<version>1.3.3.RELEASE</version>
-			<optional>true</optional>
-		</dependency>
-		 -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-devtools</artifactId> 
+			<version>1.3.3.RELEASE</version> <optional>true</optional> </dependency> -->
 		<!-- these two dependency will provide swagger-ui which help manage controllers -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>${springfox-swagger.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-swagger.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<!-- this dependency is to provide security for the project (endpoint security) -->
 		<!--  

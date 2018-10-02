@@ -1,7 +1,9 @@
-package com.shuang.kougare;
+package com.shuang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @configuration: This annotation is used on classes that define
