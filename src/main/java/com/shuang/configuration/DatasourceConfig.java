@@ -8,11 +8,12 @@ import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import oracle.jdbc.pool.OracleDataSource;
+
 
 @Configuration
 @ConfigurationProperties("spring.datasource")
@@ -37,13 +38,16 @@ public class DatasourceConfig {
 	
 	@Bean
 	DataSource dataSource() throws SQLException {
-		final OracleDataSource dataSource = new OracleDataSource();
-		dataSource.setUser(this.username);
-		dataSource.setPassword(this.password);
-		dataSource.setUrl(this.url);
-		dataSource.setImplicitCachingEnabled(true);
-		dataSource.setFastConnectionFailoverEnabled(true);
-		return dataSource;
+//		final OracleDataSource dataSource = new OracleDataSource();
+//		dataSource.setUser(this.username);
+//		dataSource.setPassword(this.password);
+//		dataSource.setUrl(this.url);
+//		dataSource.setImplicitCachingEnabled(true);
+//		dataSource.setFastConnectionFailoverEnabled(true);
+//		return dataSource;
+		return DataSourceBuilder
+		        .create()
+		        .build();
 	}
 	
 	@Bean

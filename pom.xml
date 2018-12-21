@@ -30,9 +30,15 @@
 	<dependencies>
 		<!-- this dependency is used for jdbc connection for oracle db -->
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-jdbc</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 		<!-- this dependency is used for REST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
