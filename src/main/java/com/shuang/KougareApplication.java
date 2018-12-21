@@ -2,8 +2,8 @@ package com.shuang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  * @configuration: This annotation is used on classes that define
@@ -33,7 +33,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 
 @SpringBootApplication
-public class KougareApplication {
+public class KougareApplication extends SpringBootServletInitializer {
+	
+	@Override
+	protected SpringApplicationBuilder configure (final SpringApplicationBuilder application) {
+		this.setRegisterErrorPageFilter(false);
+		return application.sources(KougareApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(KougareApplication.class, args);
