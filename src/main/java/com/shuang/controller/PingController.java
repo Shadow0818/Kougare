@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PingController extends BaseController {
 
+	/**
+	 * 
+	 */
 	@RequestMapping(value="/ping/v1", method = RequestMethod.GET)
 	public String ping() {
 		return "Kevin!";

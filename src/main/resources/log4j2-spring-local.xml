@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration monitorInterval="60">
+	<Properties>
+		<property name="Logging.path">${sys:user.home.dir}/logs</property>
+	</Properties>
+	
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %c{1}:%L - %m%n
+				</pattern>
+			</PatternLayout>
+		</Console>
+		<RollingFile name="SpotLight-File-Appender">
+			<FileName>${logging.path}/spotlight.log</FileName>
+			<FilePattern>${logging.path}/spotlight-%d{yyyy-MM-dd-hh}-%i.log.zip</FilePattern>
+			<PatternLayout>
+				<pattern>
+					%d{yyyy-MM-dd HH:mm:ss} [SpotLight] %-5p %c{1}:%L - %m%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="15MB" />
+			</Policies>
+			<DefaultRolleroverStrategy max="5" />
+		</RollingFile>
+		<RollingFile name="SpringBoot-File-Appender">
+			<FileName>${logging.path}/springboot.log</FileName>
+			<FilePattern>${logging.path}/spotlight-%d{yyyy-MM-dd-hh}-%i.log.zip</FilePattern>
+			<PatternLayout>
+				<pattern>
+					%d{yyyy-MM-dd HH:mm:ss} [SpringBoot] %-5p %c{1}:%L - %m%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="15MB" />
+			</Policies>
+			<DefaultRolleroverStrategy max="5" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="org.springframework.web" level="info" additivity="false">
+			<AppenderRef ref="SpringBoot-File-Appender" />
+			<AppenderRef ref="Console-Appender"/>
+		</Logger>
+		<Logger name="com.shuang" level="info" additivity="false">
+			<AppenderRef ref="SpotLight-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<root level="debug">
+			<AppenderRef ref="Console-Appender"/>
+		</root>
+	</Loggers>
+</configuration>
