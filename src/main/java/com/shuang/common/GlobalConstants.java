@@ -22,5 +22,37 @@ public class GlobalConstants {
 		public static final String Zip_Code = "ZIP_CODE";
 		
 	}
+	
+	public final static class AccessCode {
+		private static String Kougare_Home = "/kougarehome";
+		private static String ResumeAccess = "/myProfile";
+		/**
+		 * @return the kougarehome
+		 */
+		public final static String getKougarehome() {
+			return Kougare_Home;
+		}
+		/**
+		 * @param kougarehome the kougarehome to set
+		 */
+		public final void setKougarehome(String kougarehome) {
+			this.Kougare_Home = kougarehome;
+		}
+		/**
+		 * @return the resumeAccess
+		 */
+		public final static String getResumeAccess() {
+			return ResumeAccess;
+		}
+		/**
+		 * @param resumeAccess the resumeAccess to set
+		 */
+		public final void setResumeAccess(String resumeAccess) {
+			ResumeAccess = resumeAccess;
+		}
+		
+		
+		
+	}
 
 }
